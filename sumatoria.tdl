@@ -1,0 +1,18 @@
+# Nombre: sumatoria.tdl.
+# Descripci\ón: archivo fuente de prueba para Pr\áctica 1.
+# Fecha: 03-09-2025.
+program
+    int i, n;
+    real s;
+
+    write "Ingrese n = ";
+    read n;
+    s = 0.0;
+    i = 1;
+    while(i <= n) then
+	    s = s + i;
+	    i = i + 1;
+    endwhile
+    write "Sumatoria de ", n, " es igual a ", s;
+    writeln;
+end

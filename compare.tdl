@@ -1,0 +1,26 @@
+# Nombre: compare.tdl. 
+# Descripción: archivo fuente de prueba para Práctica 1. 
+# Fecha: 03-09-2025.
+program
+    int i, j;
+
+    write "**********Sample Code******************";
+    writeln;
+    write "Ingrese i = ";
+    read i;
+    write "Ingrese j = ";
+    read j;
+    if i < j then
+	    write i, " is less than ", j;
+	    writeln;
+    else if i > j then  # nested if.
+		    write i, " is greater than ", j;
+		    writeln;
+	    else
+		    write i, " is equal to ", j;
+		    writeln;
+	    endif
+    endif
+    write "**********End Program******************";
+    writeln;
+end
