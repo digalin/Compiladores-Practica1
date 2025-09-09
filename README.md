@@ -13,17 +13,19 @@ En este caso, se debe realizar un scanner desde cero programado en C. Este scann
 
 La representación visual final del analizador léxico sería la siguiente:
 
-![](tdl_final.png)
+![](tdlfinal.png)
 
 
 ### Estructura del repostiroio
 
+```
 digalin/Compiladores-Practica1/  
 ├── compare.tdl     # Código para probar el funcionamiento del lexer
-├── main.00.c       # Aplicación el lexer construido en tdl.lex.00.c en archivos desde la terminal
+├── main.00.c       # Aplicación el lexer construido en tdl.lex.00.c en archivos desde la terminal (parser)
 ├── sumatoria.tdl   # Código para probar el funcionamiento del lexer
-└── tdl.lex.00.c    # Analizador léxico principal que convierte la imagen anterior a código C.
-  
+└── tdl.lex.00.c    # Analizador léxico principal que convierte la imagen anterior a código C. (scanner)
+```
+
 ### Ejecución del analizador léxico TDL
 
 Para correr el programa, se debe escribir el siguiente comando en la terminal:
