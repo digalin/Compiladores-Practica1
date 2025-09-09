@@ -224,7 +224,6 @@ int yylex(void) {
                 break;
                 
             case 14: /* Aceptar número real */
-                yytext[i] = '\0';
                 return CONST_REAL;
 
             case 15: /* Error léxico: número no válido */
@@ -269,11 +268,9 @@ int yylex(void) {
                 break;
                 
             case 21: /* == */
-                yytext[i] = '\0'; 
                 return EQ;
                 
             case 22: /* = */
-                yytext[i] = '\0'; 
                 return '=';
                 
             case 23: /* > */
@@ -288,11 +285,9 @@ int yylex(void) {
                 break;
                 
             case 24: /* >= */
-                yytext[i] = '\0'; 
                 return GE;
                 
             case 25: /* > */
-                yytext[i] = '\0'; 
                 return '>'; 
                 
             case 26: /* < */
@@ -307,11 +302,9 @@ int yylex(void) {
                 break;
                 
             case 27: /* <= */
-                yytext[i] = '\0'; 
                 return LE; 
                 
             case 28: /* < */
-                yytext[i] = '\0'; 
                 return '<';
 
             case 29: /* ! */
@@ -326,50 +319,40 @@ int yylex(void) {
                 break;
                 
             case 30: /* != */
-                yytext[i] = '\0'; 
                 return NE;
 
             case 31: /* ! solo */
-                yytext[i] = '\0';
                 return ERROR_LEXICAL;
                 
             case 32: /* + */
-                yytext[i] = '\0'; 
                 return '+';
                 
             case 33: /* - */
-                yytext[i] = '\0'; 
-                return '-'; 
+                return '-';
                 
             case 34: /* * */
-                yytext[i] = '\0'; 
-                return '*'; 
+                return '*';
                 
             case 35: /* / */
                 yytext[i] = '\0'; 
                 return '/'; 
                 
             case 36: /* , */
-                yytext[i] = '\0'; 
                 return ','; 
                 
             case 37: /* ; */
-                yytext[i] = '\0';
                 return ';';
                 
             case 38: /* ( */
-                yytext[i] = '\0'; 
                 return '(';
                 
             case 39: /* ) */
-                yytext[i] = '\0';
                 return ')';
                 
             case 40: /* EOF */
                 return 0;
                 
             case 41: /* Otros caracteres */
-                yytext[i] = '\0';
                 return ERROR_LEXICAL;
         }
     }
