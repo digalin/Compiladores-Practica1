@@ -124,7 +124,7 @@ int yylex(void) {
                 if (in_char == '\n') {
                     state = 5;
                 } else if (in_char == EOF) {
-                    state = 39;
+                    state = 40;
                 } else {
                     state = 4;
                 }
