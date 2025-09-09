@@ -13,7 +13,7 @@ En este caso, se debe realizar un scanner desde cero programado en C. Este scann
 
 La representación visual final del analizador léxico sería la siguiente:
 
-[](tdl_final.png)
+![](tdl_final.png)
 
 
 ### Estructura del repostiroio
