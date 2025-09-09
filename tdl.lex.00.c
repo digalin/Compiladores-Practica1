@@ -198,7 +198,7 @@ int yylex(void) {
                     yytext[i++] = in_char;
                     state = 13;
                 } else {
-                    state = 15; /* Debe terminar con dígito(s) */
+                    state = 15;
                 }
                 break;
                 
@@ -208,7 +208,7 @@ int yylex(void) {
                     yytext[i++] = in_char;
                     state = 13;
                 } else {
-                    state = 15; /* Debe terminar con dígito(s) */
+                    state = 15; 
                 }
                 break;
                 
@@ -229,7 +229,7 @@ int yylex(void) {
 
             case 15: /* Error léxico: número no válido */
                 yytext[i] = '\0';
-                return ERROR_LEXICAL;
+                return ERROR_LEXICAL; /* Debe terminar con dígito(s) */
 
             case 16: /* Aceptar número entero */
                 yytext[i] = '\0';
@@ -255,7 +255,7 @@ int yylex(void) {
 
             case 19: /* Cadena no aceptada */
                 yytext[i] = '\0';
-                return ERROR_LEXICAL;
+                return ERROR_LEXICAL; /* Debe cerrar con comillas (ej: "ejemplo válido") */
 
             case 20: /* = */
                 in_char = fgetc(yyin);
@@ -321,7 +321,7 @@ int yylex(void) {
                     state = 30;
                 } else {
                     ungetc(in_char, yyin);
-                    state = 31; /* Error léxico: ! solo no es parte del alfabeto */
+                    state = 31;
                 }
                 break;
                 
