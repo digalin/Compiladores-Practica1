@@ -8,13 +8,11 @@ int main(int argc, char** argv) {
     int token = 0;
     int prev_line = 0; // Guarda el número de la línea anterior
 
-    // Verifica que se haya proporcionado el nombre del archivo de entrada
     if (argc != 2) {
         fprintf(stdout, "Uso: lexer <nombre_de_archivo: char*>.\n");
         return EXIT_FAILURE;
     }
 
-    // Intenta abrir el archivo de entrada en modo lectura
     yyin = fopen(argv[1], "r");
     if (yyin == NULL) {
         fprintf(stdout, "Archivo \"%s\" no se pudo abrir.\n", argv[1]);
