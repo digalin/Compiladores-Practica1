@@ -6,7 +6,7 @@ En este caso, se debe realizar un scanner desde cero programado en C. Este scann
 
 - IDENTIFIER comienza con una letra o guión bajo, seguido de cero o más caracteres que pueden ser: letras, dígitos o guiones bajos. C
 - CONST INT es uno o más dígitos.
-- CONST REAL comienza con uno o más dígtos, seguido de una parte fraccionaria obligatoria, seguida opcionalmente de una parte exponencial la cual comienza con ‘E’ o ‘e’, luego le sigue opcionalmente un carácter ‘+’ o ‘-’ y termina siempre con uno o más dígitos. 
+- CONST REAL comienza con uno o más dígitos, seguido de una parte fraccionaria obligatoria, seguida opcionalmente de una parte exponencial la cual comienza con ‘E’ o ‘e’, luego le sigue opcionalmente un carácter ‘+’ o ‘-’ y termina siempre con uno o más dígitos. 
 - STRING es una cadena de caracteres que comienza y termina con el carácter de comillas dobles. No se admiten dentro de la cadena ni el carácter de comillas dobles ni el carácter enter.
 - {AND, BREAK, CONTINUE, ELSE, END, ENDIF, ENDWHILE, FALSE, IF, INT, NOT, OR, PROGRAM, READ, REAL, STOP, THEN, TRUE, WHILE, WRITE, WRITELN} son las palabras reservadas que se escriben siempre en minúsculas en el archivo fuente. En particular {AND, NOT, OR} identifican a los operadores lógicos. 
 - {EQ, GE, LE, NE} identifican a los operadores relacionales que tienen los siguientes patrones: “==”, “>=”, “<=” y “!=”.
