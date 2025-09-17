@@ -3,15 +3,18 @@
 extern int P();
 extern int check_last_token();
 extern int yylineno;
-extern FILE* yyin;
+extern FILE *yyin;
 
-int main(int argc, char** argv) {
-	if (argc != 2) {
-		fprintf(stdout, "Use: expression <in_file_name: char*>.\n");
+int main(int argc, char **argv)
+{
+	if (argc != 2)
+	{
+		fprintf(stdout, "Use: ./tdl <in_file_name: char*>.\n");
 		return EXIT_FAILURE;
 	}
 	yyin = fopen(argv[1], "r");
-	if (yyin == NULL) {
+	if (yyin == NULL)
+	{
 		fprintf(stdout, "File \"%s\" could not be opened.\n", argv[1]);
 		fprintf(stdout, "Check if the name is correct ");
 		fprintf(stdout, "or if the file is damaged.\n");
@@ -19,6 +22,8 @@ int main(int argc, char** argv) {
 	}
 	P();
 	if (check_last_token() != 0)
-		fprintf(stderr, "expression: syntax error at line %d.\n", yylineno);
+		fprintf(stderr, "tdl: syntax error at line %d.\n", yylineno);
+	else
+		fprintf(stdout, "File compiled with no syntax error nor parameters or tokens missing.\n");
 	return EXIT_SUCCESS;
 }

@@ -1,14 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "define.h"
-
-#define TRUE 1
-#define FALSE 0
 
 int check_last_token();
 static int get_token();
 static int unget_token();
-static int get_token_state = TRUE;
+static bool get_token_state = true;
 
 extern int yylex();
 extern int yylineno;
@@ -29,17 +27,17 @@ static int PAR();
 int get_token(void)
 {
     static int token = 0;
-    if (get_token_state == TRUE)
+    if (get_token_state == true)
         token = yylex();
     else
-        get_token_state = TRUE;
+        get_token_state = true;
 
     return token;
 }
 
 static int unget_token(void)
 {
-    get_token_state = FALSE;
+    get_token_state = false;
     return EXIT_SUCCESS;
 }
 
@@ -61,13 +59,13 @@ int P(void)
             return EXIT_SUCCESS;
         else
         {
-            fprintf(stderr, "expression: expecting 'END' at line %d.\n", yylineno);
+            fprintf(stderr, "tdl: expecting 'END' at line %d.\n", yylineno);
             exit(EXIT_FAILURE);
         }
     }
     else
     {
-        fprintf(stdout, "expression: syntax error at line %d.\n", yylineno);
+        fprintf(stdout, "tdl: syntax error at line %d.\n", yylineno);
         exit(EXIT_FAILURE);
     }
     return EXIT_SUCCESS;
@@ -107,13 +105,13 @@ static int D(void)
             return EXIT_SUCCESS;
         else
         {
-            fprintf(stderr, "expression: expecting ';' at line %d.\n", yylineno);
+            fprintf(stderr, "tdl: expecting ';' at line %d.\n", yylineno);
             exit(EXIT_FAILURE);
         }
     }
     else
     {
-        fprintf(stdout, "expression: syntax error at line %d.\n", yylineno);
+        fprintf(stdout, "tdl: syntax error at line %d.\n", yylineno);
         exit(EXIT_FAILURE);
     }
     return EXIT_SUCCESS;
@@ -141,7 +139,7 @@ static int LV_prime(void)
         }
         else
         {
-            fprintf(stderr, "expression: expecting ',' at line %d.\n", yylineno);
+            fprintf(stderr, "tdl: expecting ',' at line %d.\n", yylineno);
             exit(EXIT_FAILURE);
         }
     }
@@ -188,13 +186,13 @@ static int S(void)
                 return EXIT_SUCCESS;
             else
             {
-                fprintf(stderr, "expression: expected ';' at line %d.\n", yylineno);
+                fprintf(stderr, "tdl: expected ';' at line %d.\n", yylineno);
                 exit(EXIT_FAILURE);
             }
         }
         else
         {
-            fprintf(stderr, "expression: expected IDENTIFIER at line %d.\n", yylineno);
+            fprintf(stderr, "tdl: expected IDENTIFIER at line %d.\n", yylineno);
             exit(EXIT_FAILURE);
         }
     }
@@ -206,7 +204,7 @@ static int S(void)
             return EXIT_SUCCESS;
         else
         {
-            fprintf(stderr, "expression: expected ';' at line %d.\n", yylineno);
+            fprintf(stderr, "tdl: expected ';' at line %d.\n", yylineno);
             exit(EXIT_FAILURE);
         }
     }
@@ -217,13 +215,13 @@ static int S(void)
             return EXIT_SUCCESS;
         else
         {
-            fprintf(stderr, "expression: expected ';' at line %d.\n", yylineno);
+            fprintf(stderr, "tdl: expected ';' at line %d.\n", yylineno);
             exit(EXIT_FAILURE);
         }
     }
     else
     {
-        fprintf(stdout, "expression: syntax error at line %d.\n", yylineno);
+        fprintf(stdout, "tdl: syntax error at line %d.\n", yylineno);
         exit(EXIT_FAILURE);
     }
     return EXIT_SUCCESS;
@@ -264,7 +262,7 @@ static int PAR(void)
     }
     else
     {
-        fprintf(stderr, "expression: invalid parameter at line %d.\n", yylineno);
+        fprintf(stderr, "tdl: invalid parameter at line %d.\n", yylineno);
         exit(EXIT_FAILURE);
     }
 
