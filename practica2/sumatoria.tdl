@@ -1,0 +1,9 @@
+program
+    int i, n;
+    real s;
+
+    write "Ingrese n= ";
+    read n;
+    write "Sumatoria de ", n, "es igual a ", s;
+    writeln;
+end

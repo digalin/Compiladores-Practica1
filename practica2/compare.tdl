@@ -1,0 +1,12 @@
+program
+    int i, j;
+
+    write "**********Sample Code******************"; 
+    writeln; 
+    write "Ingrese i = "; 
+    read i; 
+    write "Ingrese j = "; 
+    read j; 
+    write "**********End Program******************"; 
+    writeln; 
+end
