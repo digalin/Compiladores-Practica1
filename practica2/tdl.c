@@ -123,6 +123,10 @@ static int LV(void)
     token = get_token();
     if (token == IDENTIFIER)
         LV_prime();
+    else{
+        fprintf(stderr, "tdl: expecting IDENTIFIER at line %d.\n", yylineno);
+        exit(EXIT_FAILURE);
+    }
     return EXIT_SUCCESS;
 }
 
