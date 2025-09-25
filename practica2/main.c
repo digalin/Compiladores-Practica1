@@ -23,7 +23,5 @@ int main(int argc, char **argv)
 	P();
 	if (check_last_token() != 0)
 		fprintf(stderr, "tdl: syntax error at line %d.\n", yylineno);
-	else
-		fprintf(stdout, "File compiled with no syntax error nor parameters or tokens missing.\n");
-	return EXIT_SUCCESS;
+  return EXIT_SUCCESS;
 }
