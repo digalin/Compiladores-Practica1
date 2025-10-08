@@ -1,0 +1,4 @@
+program
+    write "Hello World!";
+    writeln;
+end

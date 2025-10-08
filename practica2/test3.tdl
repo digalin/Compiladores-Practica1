@@ -1,0 +1,12 @@
+program
+    int a, b, suma;
+
+    write "Ingrese el primer número: ";
+    read a;
+    write "Ingrese el segundo número: ";
+    read b;
+
+    suma = a + b;
+
+    write "La suma de ", a, " y ", b, " es ", suma;
+    writeln;
