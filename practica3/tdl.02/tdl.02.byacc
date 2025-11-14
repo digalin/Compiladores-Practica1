@@ -1,0 +1,141 @@
+%token BREAK
+%token CONST_INT
+%token CONST_REAL
+%token CONTINUE
+%token ELSE
+%token END
+%token ENDIF
+%token ENDWHILE
+%token FALSE
+%token IDENTIFIER
+%token IF
+%token INT
+%token PROGRAM
+%token READ
+%token REAL
+%token STOP
+%token STRING
+%token THEN
+%token TRUE
+%token WHILE
+%token WRITE
+%token WRITELN
+%left OR
+%left AND 
+%left EQ NE
+%left '<' '>' LE GE
+%left '+' '-'
+%left '*' '/'
+%nonassoc UMINUS NOT
+%start P
+%%
+
+%{
+#include <stdio.h>
+extern int yylineno;
+int yyerror(char* s);
+%}
+
+sc
+   : ';' { yyerrok; }
+   | { yyerror( "expecting \';\'"); }
+   ;
+
+rp
+   : ')' { yyerrok; }
+   | { yyerror( "expecting \')\'"); }
+   ;
+
+endif_p
+   : ENDIF { yyerrok; }
+   | { yyerror( "expecting ENDIF"); }
+   ;
+
+endwhile_p
+   : ENDWHILE { yyerrok; }
+   | { yyerror( "expecting ENDWHILE"); }
+   ;
+
+P  : PROGRAM LD LS END
+   ;
+
+LD : LD D { yyerrok; }
+   | LD error
+   | D
+   | error
+   ;
+
+D  : INT LV sc 
+   | REAL LV sc
+   ;
+
+LV : LV ',' IDENTIFIER { yyerrok; }
+   | LV ',' error
+   | LV error IDENTIFIER { yyerrok; }
+   | LV error
+   | IDENTIFIER
+   | error
+;
+
+LS : LS S { yyerrok; }
+   | LS error
+   | S
+   | error
+   ;
+
+S  : sc
+   | IDENTIFIER '=' E sc
+   | READ IDENTIFIER sc
+   | WRITE LP sc
+   | WRITELN sc
+   | IF C THEN LS endif_p
+   | IF C THEN LS ELSE LS endif_p
+   | WHILE C THEN LS endwhile_p
+   | STOP sc
+   | BREAK sc
+   | CONTINUE sc
+   | error
+   ;
+
+E  : E '+' E { yyerrok; }
+   | E '-' E { yyerrok; }
+   | E '*' E { yyerrok; }
+   | E '/' E { yyerrok; }
+   | '(' E rp
+   | '-' E %prec UMINUS
+   | IDENTIFIER
+   | CONST_INT
+   | CONST_REAL
+   | error
+   ;
+
+LP : LP ',' PAR { yyerrok; }
+   | LP ',' error
+   | LP error PAR { yyerrok; }
+   | LP error
+   | PAR
+   | error
+;
+
+PAR : IDENTIFIER
+   | CONST_INT
+   | CONST_REAL
+   | STRING
+   ;
+
+C : C AND C { yyerrok; }
+   | C OR C { yyerrok; }
+   | '(' C rp
+   | NOT C %prec NOT
+   | E '<' E { yyerrok; }
+   | E '>' E { yyerrok; }
+   | E LE E { yyerrok; }
+   | E GE E { yyerrok; }
+   | E EQ E { yyerrok; }
+   | E NE E { yyerrok; }
+   | TRUE
+   | FALSE
+   | error
+   ;
+
+%%
