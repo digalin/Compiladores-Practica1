@@ -1,17 +1,16 @@
 program
-    int i n
-    real s;
-
-    write "Ingrese n= "
-    read n      
-
-    i = ;        
-    s = 0.0;
-
-    while i <= n then
-        s = s + i
-        i = i + 1;
-    endwhile
-    write "Sumatoria de ", n, " es igual a ", s;
-    writeln;
+	int i, n;
+	real s/;
+	
+	write "Ingrese n= ";
+	read n;
+	i= 0;
+	s= 0.0;
+	while i & n then
+		s= s + i;
+		i= i + 1;
+	endwhile
+	write "Sumatoria de ", n, " es igual a ", s;
+	wroteln;
+end
 end

@@ -31,8 +31,6 @@
 %%
 
 %{
-#include <stdio.h>
-extern int yylineno;
 int yyerror(char* s);
 %}
 
@@ -48,12 +46,12 @@ rp
 
 endif_p
    : ENDIF { yyerrok; }
-   | { yyerror( "expecting ENDIF"); }
+   | error { yyerror( "expecting ENDIF"); }
    ;
 
 endwhile_p
    : ENDWHILE { yyerrok; }
-   | { yyerror( "expecting ENDWHILE"); }
+   | error { yyerror( "expecting ENDWHILE"); }
    ;
 
 P  : PROGRAM LD LS END
