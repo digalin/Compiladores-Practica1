@@ -7,11 +7,7 @@ Repositorio para alejar el desarrollo de las prácticas desarrolladas para la as
 |-----------|-----------|
 | [Práctica 1](practica1/README.md)    | Análisis léxico    |
 | [Práctica 2](practica2/README.md)    | Análisis sintáctico descendente    |
-<<<<<<< HEAD
-| Práctica 3    | ...    |
-=======
 | [Práctica 3](practica3/README.md)   | Análisis sintáctico ascendente    |
->>>>>>> 4a8b23e (Actualización README)
 | Práctica 4    | ...    |
 
 
