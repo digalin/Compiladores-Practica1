@@ -11,6 +11,6 @@ program
 		i= i + 1;
 	endwhile
 	write "Sumatoria de ", n, " es igual a ", s;
-	wroteln;
+	hola;
 end
 end
